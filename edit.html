@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="font-awesome/css/font-awesome.min.css"
+    />
+    <title>TABLE MANAGER</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-blue">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link " href="Home.html">Home </a>
+          <a class="nav-item nav-link active" href="#"
+            >Manage Plate Numbers<span class="sr-only">(current)</span></a
+          >
+          <a class="nav-item nav-link" href="about.html">About</a>
+          <a class="nav-item nav-link " href="#" onclick="logout()">Logout</a>
+        </div>
+      </div>
+    </nav>
+    <div class="container" style="margin-top: 30px;">
+      <!-- view modal -->
+      <div id="tableView" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <label id="viewLongDesc">INFO</label>
+            </div>
+
+            <div class="modal-footer">
+              <!-- <input type="button" value="save" class="btn btn-success" onclick="manageData('addNew')"> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form id="plateNumberEdit" class="card">
+        <!-- Name -->
+        <div class="form-group">
+          <label for="nameEdit">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nameEdit"
+            aria-describedby="emailHelp"
+            placeholder="Enter Name"
+          />
+          <small id="emailHelp" class="form-text text-muted"
+            >Your personal informaton is safe with us</small
+          >
+        </div>
+
+        <!-- Address -->
+        <div class="form-group">
+          <label for="addressEdit">Address</label>
+          <input
+            type="text"
+            class="form-control"
+            id="addressEdit"
+            placeholder="Address"
+          />
+        </div>
+
+        <!-- Sex -->
+        <div class="form-group">
+          <label for="sexEdit">Sex</label>
+          <select class="form-control" id="sexEdit">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+
+        <!-- State -->
+        <div class="form-group">
+          <label for="stateEdit">State</label>
+          <select class="form-control" id="stateEdit">
+            <option value="Abuja">Abuja</option>
+            <option value="Delta">Delta</option>
+            <option value="Kogi">Kogi</option>
+            <option value="Lagos">Lagos</option>
+            <option value="Rivers">Rivers</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btnEdit btn-primary">
+          <p id="editBtn" style="padding-top: 10px;">Submit</p>
+        </button>
+      </form>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/dataTables.bootstrap.min.js"></script>
+
+    <script src="js/index.js"></script>
+    <script>
+      $(document).ready(function() {
+        console.log(JSON.parse(localStorage.isahEditInfo));
+        data = JSON.parse(localStorage.isahEditInfo);
+        $("#nameEdit").val(data.myName);
+        $("#addressEdit").val(data.addr);
+        $("#sexEdit").val(data.sex);
+        $("#stateEdit").val(data.state);
+      });
+
+      $("#plateNumberEdit").on("submit", function(e) {
+        e.preventDefault();
+        editSave(data.id);
+      });
+    </script>
+  </body>
+</html>

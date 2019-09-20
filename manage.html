@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/dataTables.bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>ISAH PLATE REGISTRATION</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-blue">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link " href="Home.html">Home </a>
+          <a class="nav-item nav-link active" href="#"
+            >Manage Plate Numbers<span class="sr-only">(current)</span></a
+          >
+          <a class="nav-item nav-link" href="about.html">About</a>
+          <a class="nav-item nav-link" href="#" onclick="logout()">Logout</a>
+        </div>
+      </div>
+    </nav>
+    <div class="container" style="margin-top: 30px;">
+      <!-- view modal -->
+      <div id="tableView" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title">PLATE NUMBER INFORMATION</h3>
+            </div>
+
+            <div class="modal-body">
+              <div class="viewHeader">
+                <h3>Name</h3>
+                <label id="viewName"></label>
+              </div>
+              <br />
+              <br />
+              <div class="viewHeader">
+                <h3>Address</h3>
+                <label id="viewAddr"></label>
+              </div>
+              <br />
+              <br />
+              <div class="viewHeader">
+                <h3>Sex</h3>
+                <label id="viewSex"></label>
+              </div>
+
+              <br />
+              <br />
+              <div class="viewHeader">
+                <h3>State</h3>
+                <label id="viewState"></label>
+              </div>
+
+              <br />
+              <br />
+              <div class="viewHeader">
+                <h3>Plate</h3>
+                <label id="viewPlate"></label>
+              </div>
+
+              <br />
+              <br />
+              <div class="viewHeader">
+                <h3>Date of Registration</h3>
+                <label id="viewDate"></label>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <!-- <input type="button" value="save" class="btn btn-success" onclick="manageData('addNew')"> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h2>PLATE NUMBERS</h2>
+          <input
+            style="float: right"
+            type="button"
+            class="btn btn-success"
+            value="Add New"
+            id="addNew"
+          />
+          <br />
+          <br />
+          <table class="table table-hover table-bordered table-striped">
+            <thead>
+              <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Plate Number</td>
+                <td>state</td>
+                <td>Options</td>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/dataTables.bootstrap.min.js"></script>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>
