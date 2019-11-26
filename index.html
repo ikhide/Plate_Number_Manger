@@ -65,8 +65,44 @@
         </button>
       </div>
     </div>
-    <script src="js/index.js"></script>
+
     <script src="js/jquery.js"></script>
+    <script>
+      function login() {
+        document.getElementById("btnText").innerText = " ";
+        $("#btnText").addClass("fa fa-circle-o-notch fa-2x fa-spin fa-fw");
+        $.ajax({
+          url: "ajax.php",
+          method: "POST",
+          dataType: "json",
+          data: {
+            key: "login",
+            username: $("#username").val(),
+            password: $("#password").val()
+          },
+          success: function(response) {
+            console.log(response);
+            res = response.result;
+            if (res === "Username or Password Incorrect") {
+              $("#error-msg").text(res);
+              $("#error-msg").show();
+              document.getElementById("btnText").innerText = "Login";
+              $("#btnText").removeClass(
+                "fa fa-circle-o-notch fa-2x fa-spin fa-fw"
+              );
+            } else {
+              localStorage.setItem("IsahIsahId", res);
+              document.getElementById("btnText").innerText = "Home";
+              $("#btnText").removeClass(
+                "fa fa-circle-o-notch fa-2x fa-spin fa-fw"
+              );
+              window.location = "Home.html";
+            }
+            // $("#totalNumber").append(response['0']);
+          }
+        });
+      }
+    </script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
       integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
